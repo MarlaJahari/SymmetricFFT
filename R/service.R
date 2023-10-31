@@ -102,10 +102,10 @@ sn_cc <-function(N,LB,UB) {
 }
 
 sn_at<- function(N, K) {
-  AT<- integer(N)  #an integer vector to hold the patterned values
+  AT<-integer(N)  #an integer vector to hold the patterned values
 
   for (i in 1:(K-1)) {
-    AT[i] <-i
+    AT[i]<-i
   }
 
   AT[K]<-K+1
@@ -123,11 +123,11 @@ sn_at<-function(N) {
   AT<- integer(N)  #create an integer vector to hold the transposition
 
   AT[1:k]<- 1:k
-  AT[k]<- k + 1
-  AT[k+1]<- k
+  AT[k]<-k+1
+  AT[k+1]<-k
 
-  if (k< N - 1) {
-    AT[(k + 2):N] <- (k + 2):N
+  if (k< N-1) {
+    AT[(k+2):N] <- (k+2):N
   }
 
   return(AT)
@@ -173,13 +173,13 @@ permutation_ccf <-function(P) {
   N<-length(P)
   CCF<- integer(N - 1)  #create an integer vector to hold the CCF
 
-  i<- 1
+  i<-1
   for (j in N:2) {
-    CCF[i]<- P[j]
-    cc<- sn_cc(N, P[j], j)
+    CCF[i]<-P[j]
+    cc<-sn_cc(N, P[j], j)
     cc_inv<- sn_inverse(cc)
-    P<- sn_multiply(cc_inv, P)
-    i<- i+1
+    P<-sn_multiply(cc_inv, P)
+    i<-i+1
   }
   return(CCF)
 }
@@ -190,7 +190,7 @@ ccf_index <-function(CCF) {
   Index<-1
 
   for (i in 1:(N-1)){
-    N<- N-1
+    N<-N-1
     if (CCF[i]!=1) {
       Index <-Index +(CCF[i]-1)*factorial(N)
     }
@@ -200,8 +200,8 @@ ccf_index <-function(CCF) {
 
 #calculates the unique index that a given permutation P maps to
 permutation_index<- function(P) {
-  ccf<- permutation_ccf(P)
-  index<- ccf_index(ccf)
+  ccf<-permutation_ccf(P)
+  index<-ccf_index(ccf)
   return(index)
 }
 
@@ -211,9 +211,9 @@ index_ccf<-function(N, Index) {
   Index<-Index-1
 
   for(i in 1:(N-1)) {
-    q <- floor(Index/factorial(N - i))
-    Index <- Index- q*factorial(N - i)
-    CCF[i] <- q+1
+    q<-floor(Index/factorial(N - i))
+    Index<-Index- q*factorial(N - i)
+    CCF[i]<-q+1
   }
 
   return(CCF)
@@ -239,16 +239,16 @@ ccf_permutation<-function(CCF){
 #calculates the adjacent transposition factorization of a permutation P
 permutation_atf<-function(P) {
   N<-length(P)
-  CCF<- permutation_ccf(P)
-  dATF<- vector("list", length(CCF))
-  L<- 0
+  CCF<-permutation_ccf(P)
+  dATF<-vector("list", length(CCF))
+  L<-0
 
   for(i in 1:length(CCF)) {
-    P<- CCF[[i]]
-    D<- N-P
-    P<- P-1
-    L<- L+D
-    N<- N-1
+    P<-CCF[[i]]
+    D<-N-P
+    P<-P-1
+    L<-L+D
+    N<-N-1
     dATFs<-integer(D)
 
     for(j in 1:D) {
