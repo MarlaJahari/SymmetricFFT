@@ -230,39 +230,39 @@ yor_p<- function(N, R, YSymbols) {
 yor<- function(N) {
 
   #generate partitions and width information
-  partitions <- partitions(N)
-  P <- partitions[[1]]
-  WI <- partitions[[2]]
+  partitions<- partitions(N)
+  P<-partitions[[1]]
+  WI<-partitions[[2]]
 
-  # Compute the Partition Tree
-  PT <- partition_tree(N, P, WI)
+  # compute the partition tree
+  PT<-partition_tree(N, P, WI)
 
-  # Generate Yamanouchi Symbols
-  YS <- ys_symbols(N, P, PT)
+  #generate yamanouchi Symbols
+  YS<-ys_symbols(N, P, PT)
 
-  # Initialize the YOR array
-  YOR <- list()
+  #initialize the YOR array
+  YOR<-list()
 
-  # Iterate over each value of n
+  #iterate over each value of n
   for (n in 1:N) {
-    YSn <- YS[[n]]
-    Pn <- P[[n]]
-    Pn_L <- length(Pn)
-    YORn <- list()
+    YSn<- YS[[n]]
+    Pn<- P[[n]]
+    Pn_L<- length(Pn)
+    YORn<- list()
 
-    # Compute YOR representations for each subpartition
+    # computing YOR representations for each subpartition
     for (p in 1:Pn_L) {
-      YSnp <- YSn[[p]]
-      Pnp <- Pn[[p]]
-      R <- length(Pnp)
+      YSnp<- YSn[[p]]
+      Pnp<- Pn[[p]]
+      R<- length(Pnp)
       YORn[[p]] <- yor_p(n, R, YSnp)
     }
 
-    # Store YOR representations for the current n
-    YOR[[n]] <- YORn
+    # storing YOR representations for the current n
+    YOR[[n]]<- YORn
   }
 
-  # Return the YOR array and the Partition Tree
+  #returning the YOR array and the partition Tree
   return(list(YOR = YOR, PT = PT))
 }
 
