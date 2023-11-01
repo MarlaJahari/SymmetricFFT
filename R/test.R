@@ -153,7 +153,7 @@ hook_product<-function(P) {
   HP<- 1
   for(i in 1:length(P)) {
     for(j in 1:P[i]) {
-      HP<- HP*hook_length(P,i,j)
+      HP<-HP*hook_length(P,i,j)
     }
   }
   return(HP)
