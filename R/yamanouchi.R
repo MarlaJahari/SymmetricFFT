@@ -1,6 +1,8 @@
 #checks if YSymbol2 is the result of applying the adjacent transposition (K, K+1) to YSymbol1
 #returns 1 if true, 0 else
 
+#new comments added
+
 istranspose<-function(YSymbol1, YSymbol2, K) {
   for(i in 1:(K - 1)) {
     if(YSymbol1[i]!=YSymbol2[i]) {

@@ -156,3 +156,4 @@ partitions<- function(N) {
   return(list(part,WI))
 }
 
+#new coms added

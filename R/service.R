@@ -291,4 +291,4 @@ yor_permutation<-function(P,YORnp){
   return(RM)
 }
 
-
+#new coms added
