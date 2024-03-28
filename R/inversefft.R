@@ -1,5 +1,6 @@
 #update the necessary element in an array of FFTs for left cosets.
 #fill in the FFT components for the left coset determined by n
+#coms added
 
 update_sfft <- function(N, n, sFFT, FFTp, YORnp, YORd, PTnp) {
   Dim<-dim(YORnp[[1]])[1]

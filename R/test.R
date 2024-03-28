@@ -1,5 +1,5 @@
 #calculates the direct sum matrix (DSM) based on the input parameters Dim, sFFTn, and PTnp
-
+#to add example
 dsm <-function(Dim,sFFTn,PTnp) {
   DSM<-matrix(0, nrow=Dim, ncol=Dim)
   offset<-0
