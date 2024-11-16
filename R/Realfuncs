@@ -287,3 +287,21 @@ associate_permutations <- function(n, numbers) {
   return(associated_list)
 }
 
+
+#i need to edit this function a little bit more
+#not final
+
+calculate_fourier_transform <- function(f) {
+  n <- length(f)
+  permutations <- permutations(n)
+  fourier_transform <- array(0, dim = c(n, n))
+
+  for (i in 1:nrow(permutations)) {
+    sigma <- permutations[i, ]
+    for (j in 1:n) {
+      fourier_transform[j, ] <- fourier_transform[j, ] + f(sigma) * sigma[j]
+    }
+  }
+
+  return(fourier_transform)
+}
